@@ -1,0 +1,4 @@
+../Core/Src/DSP_TransferFunction.c:10:16:DSP_CreateTransferFunction	32	static
+../Core/Src/DSP_TransferFunction.c:20:16:DSP_C2D	512	static
+../Core/Src/DSP_TransferFunction.c:121:6:DSP_vGenerateSignal	16	static
+../Core/Src/DSP_TransferFunction.c:140:7:DSP_fRecurringEquationRoutine	24	static
