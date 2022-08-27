@@ -65,7 +65,7 @@ DSP_Return_ten DSP_PolynomCreate(char* PolynomChar , DSP_Polynom_tst* Polynom_st
 				if (PolynomChar[i] == ' ')
 				{
 					strncpy(CoefChar,&(PolynomChar[NextCoefIndex]), i - NextCoefIndex);
-					//strcat(CoefChar,(const char*)(ZeroChar) );
+					//strcat(CoefChar,(const char*)(&ZeroChar) );
 					CoefNumber ++;
 					Polynom_st->coef[CoefNumber-1] = atof(CoefChar);
 
@@ -83,7 +83,7 @@ DSP_Return_ten DSP_PolynomCreate(char* PolynomChar , DSP_Polynom_tst* Polynom_st
 					if (LastCoefGot == 0)
 					{
 						strncpy(CoefChar,&(PolynomChar[NextCoefIndex]), i - NextCoefIndex);
-						//strcat(CoefChar,(const char*)(ZeroChar) );
+						//strcat(CoefChar,(const char*)(&ZeroChar) );
 						CoefNumber ++;
 						Polynom_st->coef[CoefNumber-1] = atof(CoefChar);
 
@@ -153,7 +153,7 @@ DSP_Return_ten DSP_MulPolynom(DSP_Polynom_tst Polynom1_st, DSP_Polynom_tst Polyn
 {
 	DSP_Return_ten Return = DSP_Ok_en;
 
-//	float PolynomProduct[10][10];
+//	double PolynomProduct[10][10];
 
 	PolynomMul_st->degree = Polynom1_st.degree + Polynom2_st.degree;
 
@@ -171,7 +171,7 @@ DSP_Return_ten DSP_MulPolynom(DSP_Polynom_tst Polynom1_st, DSP_Polynom_tst Polyn
 	return Return;
 }
 
-DSP_Return_ten DSP_MulScalarPolynom(float Scalar, DSP_Polynom_tst Polynom1_st, DSP_Polynom_tst* PolynomMul_st)
+DSP_Return_ten DSP_MulScalarPolynom(double Scalar, DSP_Polynom_tst Polynom1_st, DSP_Polynom_tst* PolynomMul_st)
 {
 	PolynomMul_st->degree = Polynom1_st.degree;
 	for (int8_t i = 0; i < Polynom1_st.degree + 1 ; i++)
@@ -181,12 +181,12 @@ DSP_Return_ten DSP_MulScalarPolynom(float Scalar, DSP_Polynom_tst Polynom1_st, D
 	return DSP_Ok_en;
 }
 
-DSP_Return_ten DSP_DevideScalarPolynom(float Scalar, DSP_Polynom_tst Polynom1_st, DSP_Polynom_tst* PolynomMul_st)
+DSP_Return_ten DSP_DevideScalarPolynom(double Scalar, DSP_Polynom_tst Polynom1_st, DSP_Polynom_tst* PolynomMul_st)
 {
 	PolynomMul_st->degree = Polynom1_st.degree;
 	for (int8_t i = 0; i < Polynom1_st.degree + 1 ; i++)
 	{
-		PolynomMul_st->coef[i] = (float)( Polynom1_st.coef[i] / Scalar);
+		PolynomMul_st->coef[i] = (double)( Polynom1_st.coef[i] / Scalar);
 	}
 	return DSP_Ok_en;
 }

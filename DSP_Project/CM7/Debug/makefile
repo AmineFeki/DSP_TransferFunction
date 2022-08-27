@@ -9,6 +9,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Middlewares/Third_Party/FreeRTOS/subdir.mk
 -include Drivers/STM32H7xx_HAL_Driver/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -61,8 +62,8 @@ all: main-build
 main-build: DSP_Project_CM7.elf secondary-outputs
 
 # Tool invocations
-DSP_Project_CM7.elf DSP_Project_CM7.map: $(OBJS) $(USER_OBJS) C:\Users\LENOVO\Desktop\DSP\DSP_Workspace\DSP_Project\CM7\STM32H745ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "DSP_Project_CM7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\LENOVO\Desktop\DSP\DSP_Workspace\DSP_Project\CM7\STM32H745ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DSP_Project_CM7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+DSP_Project_CM7.elf DSP_Project_CM7.map: $(OBJS) $(USER_OBJS) C:\Users\LENOVO\Desktop\DSP\DSP_Workspace\DSP_TransferFunction\DSP_Project\CM7\STM32H745ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "DSP_Project_CM7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\LENOVO\Desktop\DSP\DSP_Workspace\DSP_TransferFunction\DSP_Project\CM7\STM32H745ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DSP_Project_CM7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

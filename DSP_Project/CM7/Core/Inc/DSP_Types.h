@@ -14,7 +14,7 @@
 typedef struct
 {
 	uint8_t degree;
-	float coef[DSP_MAX_POLYNOM_DEGREE+1];
+	double coef[DSP_MAX_POLYNOM_DEGREE+1];
 }DSP_Polynom_tst;
 
 typedef struct
@@ -22,8 +22,8 @@ typedef struct
 	DSP_Polynom_tst num;
 	DSP_Polynom_tst denom;
 	uint8_t k;
-	float Y[DSP_MAX_POLYNOM_DEGREE];
-	float U[DSP_MAX_POLYNOM_DEGREE];
+	double Y[DSP_MAX_POLYNOM_DEGREE];
+	double U[DSP_MAX_POLYNOM_DEGREE];
 }DSP_TF_tst;
 
 typedef enum

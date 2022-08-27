@@ -80,7 +80,7 @@ DSP_Return_ten DSP_C2D(DSP_TF_tst ContTF, DSP_TF_tst* DiscTF, DSP_ZAlgorithm_ten
 		DSP_PolynomInit(&InterPolynom5);
 		DSP_PolynomInit(&InterPolynom6);
 
-
+		/* Finalize the calculation depending on the degree of the Numerator and the Denominator */
 		if (ContTF.num.degree > ContTF.denom.degree)
 		{
 			DSP_PowPolynom(TustinDenom, ContTF.num.degree-ContTF.denom.degree, &InterPolynom5);
@@ -133,13 +133,24 @@ void DSP_vGenerateSignal(DSP_TF_tst* tf)
 		tf->k = tf->denom.degree;
 	}
 
-	tf->U[tf->k] = 10;
+	tf->U[tf->k] = 0.0;
+	tf->Y[tf->k-1] = 0.0;
 	//HAL_TIM_Base_Start_IT(&htim6);
 }
 
-float DSP_fRecurringEquationRoutine(DSP_TF_tst* tf)
+void DSP_vSetInput(DSP_TF_tst* tf , float input)
 {
-	float output = 0.0;
+	tf->U[tf->k]= input;
+}
+
+float DSP_fGetOutput(DSP_TF_tst tf)
+{
+	return tf.Y[tf.k];
+}
+
+double DSP_fRecurringEquationRoutine(DSP_TF_tst* tf)
+{
+	double output = 0.0;
 
 	tf->Y[tf->k] = tf->num.coef[0] * tf->U[tf->k];
 	for (uint8_t i = 1; i < tf->k + 1  ; i++)
@@ -147,7 +158,9 @@ float DSP_fRecurringEquationRoutine(DSP_TF_tst* tf)
 		tf->Y[tf->k] += tf->num.coef[i] * tf->U[tf->k-i] - tf->denom.coef[i] * tf->Y[tf->k-i] ;
 	}
 
-	output = tf->Y[tf->k];
+//	tf->Y[tf->k] = tf->Y[tf->k] - 1.0;
+
+	output = tf->Y[tf->k]  ;
 
 	for (int8_t j = tf->k-1 ; j >= 0 ; j--)
 	{

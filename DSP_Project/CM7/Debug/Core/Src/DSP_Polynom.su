@@ -1,8 +1,8 @@
 ../Core/Src/DSP_Polynom.c:14:16:DSP_PolynomInit	24	static
-../Core/Src/DSP_Polynom.c:24:16:DSP_PolynomCreate	40	static
+../Core/Src/DSP_Polynom.c:24:16:DSP_PolynomCreate	48	static
 ../Core/Src/DSP_Polynom.c:122:16:DSP_SumPolynom	16	static
 ../Core/Src/DSP_Polynom.c:152:16:DSP_MulPolynom	16	static
 ../Core/Src/DSP_Polynom.c:174:16:DSP_MulScalarPolynom	24	static
 ../Core/Src/DSP_Polynom.c:184:16:DSP_DevideScalarPolynom	24	static
-../Core/Src/DSP_Polynom.c:194:16:DSP_PowPolynom	168	static
+../Core/Src/DSP_Polynom.c:194:16:DSP_PowPolynom	304	static
 ../Core/Src/DSP_Polynom.c:222:16:DSP_CpyPolynom	24	static

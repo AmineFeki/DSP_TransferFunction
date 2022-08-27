@@ -10,7 +10,8 @@
 
 #define DSP_MAX_POLYNOM_DEGREE	10
 
-#define Ts	0.01
+#define Ts	0.001
+
 
 
 #endif /* INC_DSP_CFG_H_ */

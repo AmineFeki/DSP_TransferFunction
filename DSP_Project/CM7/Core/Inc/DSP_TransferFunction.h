@@ -16,6 +16,9 @@
 DSP_Return_ten DSP_CreateTransferFunction(char* Numerator,char* denominator, DSP_TF_tst* Tf);
 DSP_Return_ten DSP_C2D(DSP_TF_tst ContTF, DSP_TF_tst* DiscTF, DSP_ZAlgorithm_ten Algo);
 void DSP_vGenerateSignal(DSP_TF_tst* tf);
-float DSP_fRecurringEquationRoutine(DSP_TF_tst* tf);
+double DSP_fRecurringEquationRoutine(DSP_TF_tst* tf);
+
+void DSP_vSetInput(DSP_TF_tst* tf , float input);
+float DSP_fGetOutput(DSP_TF_tst tf);
 
 #endif /* INC_DSP_TRANSFERFUNCTION_H_ */
